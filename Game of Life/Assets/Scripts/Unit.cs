@@ -1,13 +1,6 @@
 using StateMachine;
-using System.Collections.Generic;
-using System.Xml;
-using Unity.IO.LowLevel.Unsafe;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
-using static UnityEditorInternal.VersionControl.ListControl;
 
 public class Unit : MonoBehaviour
 {
@@ -61,10 +54,13 @@ public class Unit : MonoBehaviour
 
         StateMachine = new StateMachine.StateMachine(DeadState);
     }
+
+    // step one: get next state
     public void StepOne() {
         StateMachine?.Update();
     }
 
+    // step two: apply next states
     public void StepTwo() {
         StateMachine?.NextUpdate();
     }
